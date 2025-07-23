@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { connectSocket } from "../utils/socket";
+import { getSocket } from "../utils/socket";
 
 export default function Login({ setUser }) {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -30,6 +31,7 @@ connectSocket(token);
 
       setUser(profileRes.data.user);
 
+      const user = profileRes.data.user;
       
       getSocket().emit("join", user._id);
 
@@ -58,7 +60,7 @@ connectSocket(token);
               name="email"
               value={form.email}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring"
+              className="w-full px-3 py-2 border text-black rounded focus:outline-none focus:ring"
               required
             />
           </div>
@@ -72,7 +74,7 @@ connectSocket(token);
               name="password"
               value={form.password}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring"
+              className="w-full px-3 py-2 border text-black rounded focus:outline-none focus:ring"
               required
             />
           </div>
@@ -85,7 +87,7 @@ connectSocket(token);
           </button>
         </form>
         <p className="mt-4 text-center">
-          new user{" "}
+          new user create account{" "}
           <Link to="/register" className="text-blue-600 hover:underline">
             Register
           </Link>
