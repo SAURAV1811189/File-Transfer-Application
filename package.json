@@ -1,0 +1,16 @@
+{
+  "name": "file-transfer-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"pnpm run start --prefix backend\" \"pnpm run start --prefix frontend\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.2.0",
+    "socket.io-client": "^4.8.1"
+  }
+}
