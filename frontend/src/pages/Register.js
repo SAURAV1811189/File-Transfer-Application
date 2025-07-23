@@ -28,10 +28,10 @@ export default function Register({ setUser }) {
 
     const { token } = res.data;
 
-    // Save token
+    
     localStorage.setItem("token", token);
 
-    // ✅ CONNECT SOCKET WITH TOKEN
+   
     connectSocket(token);
 
       const profileRes = await axios.get(
@@ -43,7 +43,7 @@ export default function Register({ setUser }) {
 
     setUser(profileRes.data.user);
 
-    // Redirect to home
+    
     navigate("/home");
   } catch (err) {
     setError(err.response?.data?.message || "Registration failed");

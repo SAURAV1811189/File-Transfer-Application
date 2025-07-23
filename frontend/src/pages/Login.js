@@ -23,17 +23,16 @@ export default function Login({ setUser }) {
 
       localStorage.setItem("token", token);
 connectSocket(token);
-      // Fetch user profile
+      
       const profileRes = await axios.get("http://localhost:5000/api/user/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
       setUser(profileRes.data.user);
 
-      // Join socket room with user ID
+      
       getSocket().emit("join", user._id);
 
-      // Redirect to home
       navigate("/home");
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");

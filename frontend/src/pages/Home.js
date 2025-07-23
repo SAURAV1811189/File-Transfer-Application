@@ -12,7 +12,7 @@ export default function Home({ user, setUser }) {
   const [uploading, setUploading] = useState(false);
   const navigate = useNavigate();
 
-  // ✅ Setup socket & fetch profile
+  
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) return navigate("/login");
@@ -35,13 +35,13 @@ export default function Home({ user, setUser }) {
     };
   }, []);
 
-  // ✅ File selection
+
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
     setProgress(0);
   };
 
-  // ✅ Upload logic
+ 
   const handleUpload = () => {
     if (!file || !socket) return;
 
@@ -82,7 +82,7 @@ export default function Home({ user, setUser }) {
     reader.readAsDataURL(file);
   };
 
-  // ✅ Logout
+  
   const handleLogout = () => {
     localStorage.removeItem("token");
     setUser(null);
@@ -108,7 +108,6 @@ export default function Home({ user, setUser }) {
           <span className="font-semibold">Email:</span> {user?.email}
         </p>
 
-        {/* File Input */}
         <div className="mb-4">
           <input
             type="file"
@@ -117,7 +116,7 @@ export default function Home({ user, setUser }) {
           />
         </div>
 
-        {/* Upload Button */}
+       
         <button
           onClick={handleUpload}
           disabled={!file || uploading}
@@ -127,7 +126,7 @@ export default function Home({ user, setUser }) {
           {uploading ? "Uploading..." : "Upload File"}
         </button>
 
-        {/* Progress Bar */}
+        
         {uploading && (
           <div className="mt-4 w-full bg-gray-300 h-4 rounded-full overflow-hidden">
             <div
@@ -137,7 +136,7 @@ export default function Home({ user, setUser }) {
           </div>
         )}
 
-        {/* Success Message */}
+       
         {progress === 100 && !uploading && (
           <p className="mt-4 text-green-600 font-medium">
             ✅ File uploaded successfully!

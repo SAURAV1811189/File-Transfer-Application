@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import io from "socket.io-client";
 
-// Pages & Components
+
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
@@ -16,7 +16,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 import Footbar from "./components/Footbar";
 
-const socket = io("http://localhost:5000"); // Update this if hosted remotely
+const socket = io("http://localhost:5000");
 
 function App() {
   const [user, setUser] = useState(null);

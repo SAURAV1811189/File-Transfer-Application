@@ -8,7 +8,7 @@ const setupSocketIO = (server) => {
     },
   });
 
-  const users = new Map(); // Maps username to socket ID
+  const users = new Map(); 
 
   io.on("connection", (socket) => {
     console.log(`🔌 User connected: ${socket.id}`);

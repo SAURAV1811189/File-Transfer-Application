@@ -10,7 +10,7 @@ export default function SendFile() {
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     console.log("File selected:", selectedFile);
-    if (selectedFile && selectedFile.size > 10 * 1024 * 1024) { // 10MB limit
+    if (selectedFile && selectedFile.size > 10 * 1024 * 1024) {
       setError("File size exceeds 10MB limit.");
       setFile(null);
     } else {
@@ -51,7 +51,7 @@ export default function SendFile() {
 
       reader.onloadend = () => {
         setProgress(100);
-        setTimeout(() => setProgress(0), 2000); // Reset progress after 2s
+        setTimeout(() => setProgress(0), 2000); 
       };
 
       reader.readAsArrayBuffer(file);
